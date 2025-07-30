@@ -1,0 +1,19 @@
+{
+  "name": "it-scenario-api",
+  "version": "1.0.0",
+  "description": "REST API for generating IT scenarios with validation and TDD",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest --coverage"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-validator": "^6.15.0"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "supertest": "^6.3.0"
+  }
+}

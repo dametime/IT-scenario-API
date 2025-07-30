@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IT Scenario Generator</title>
+</head>
+<body>
+  <h1>Generate IT Scenario</h1>
+  <form id="scenarioForm">
+    <label>Technology: <input type="text" name="technology" required></label><br>
+    <label>Role: <input type="text" name="role" required></label><br>
+    <label>Environment: <input type="text" name="environment" required></label><br>
+    <button type="submit">Generate</button>
+  </form>
+
+  <h2>Scenario Output</h2>
+  <pre id="output"></pre>
+
+  <script>
+    document.getElementById('scenarioForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const data = {
+        technology: form.technology.value,
+        role: form.role.value,
+        environment: form.environment.value
+      };
+
+      const res = await fetch('http://localhost:3000/generate-scenario', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      const result = await res.json();
+      document.getElementById('output').textContent = JSON.stringify(result, null, 2);
+    });
+  </script>
+</body>
+</html>
