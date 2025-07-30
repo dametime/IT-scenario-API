@@ -6,10 +6,29 @@
 </head>
 <body>
   <h1>Generate IT Scenario</h1>
+  <h1>Choose from the available options and I'll generate a Random Technical Scenario with the Challenges, Incident and TroubleShooting Steps. </h1>
   <form id="scenarioForm">
-    <label>Technology: <input type="text" name="technology" required></label><br>
-    <label>Role: <input type="text" name="role" required></label><br>
-    <label>Environment: <input type="text" name="environment" required></label><br>
+    <fieldset>
+      <legend>Technology:</legend>
+      <label><input type="radio" name="technology" value="Cloud Computing" required>Cloud Computing</label>
+      <label><input type="radio" name="technology" value="CyberSecurity"> CyberSecurity</label>
+      <label><input type="radio" name="technology" value="DevOps"> DevOps</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Role:</legend>
+      <label><input type="radio" name="role" value="Software Engineer" required> Software Engineer</label>
+      <label><input type="radio" name="role" value="Security Analyst"> Security Analyst</label>
+      <label><input type="radio" name="role" value="System Admin"> System Admin</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Environment:</legend>
+      <label><input type="radio" name="environment" value="Enterprise Network" required>Enterprise Network</label>
+      <label><input type="radio" name="environment" value="Cloud"> Cloud</label>
+      <label><input type="radio" name="environment" value="On-Premises Data Center"> On-Premises Data Center</label>
+    </fieldset>
+
     <button type="submit">Generate</button>
   </form>
 
