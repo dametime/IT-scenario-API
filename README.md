@@ -47,18 +47,18 @@ A simple REST API that generates random IT scenarios based on user input. The AP
 #### Request Body
 ```json
 {
-  "technology": "Docker",
-  "role": "DevOps Engineer",
-  "environment": "Production"
+  "technology": "Cloud Computing",
+  "role": "System Administrator",
+  "environment": "Cloud"
 }
 ```
 
 #### Success Response
 ```json
 {
-  "technology": "Docker",
-  "role": "DevOps Engineer",
-  "environment": "Production",
+  "technology": "Cloud Computing",
+  "role": "System Administrator",
+  "environment": "Cloud",
   "scenario_details": {
     "challenge": "Scalability issues during peak load",
     "incident": "Unexpected server crashes during deployment",

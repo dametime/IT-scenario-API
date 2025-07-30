@@ -1,3 +1,4 @@
+//Require all the packages
 const express = require('express');
 const cors = require('cors');
 const { body, validationResult } = require('express-validator');
@@ -8,6 +9,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
+//Initialization of Pre-defined Datasets
 const challenges = [
   "Scalability issues during peak load",
   "Data inconsistency across microservices",
@@ -32,8 +34,10 @@ const troubleshootingSteps = [
   "Refactor resource-intensive functions for optimization"
 ];
 
+//Randomization Function Definition
 const getRandomItem = (list) => list[Math.floor(Math.random() * list.length)];
 
+//Backend Validation To make sure the data type is a string , it's not empty and contains at least two characters
 const scenarioValidationRules = [
   body('technology')
     .exists().withMessage('Technology is required')
@@ -53,6 +57,7 @@ const scenarioValidationRules = [
 
 app.post('/generate-scenario', scenarioValidationRules, (req, res) => {
   const errors = validationResult(req);
+  //Listens for error 
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
   }
@@ -69,7 +74,7 @@ app.post('/generate-scenario', scenarioValidationRules, (req, res) => {
       troubleshooting_step: getRandomItem(troubleshootingSteps)
     }
   };
-
+// In the absence of errors, returns the random scenario in a json format.
   res.json(scenario);
 });
 
